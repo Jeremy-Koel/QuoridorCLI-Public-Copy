@@ -158,7 +158,7 @@ namespace QuoridorCLI
                         } while (validMove == false);
                     }
                 }
-                
+               
                 if (currentPlayer == 1)
                 {
                     if (player1walls > 0)
