@@ -8,7 +8,7 @@ namespace QuoridorCLI
         static void Main(string[] args)
         {
             int currentPlayer = 0, player1walls = 10, player2walls = 10;
-            GameBoard board = new GameBoard("e4", "e5");
+            GameBoard board = new GameBoard("e1", "e9");
             currentPlayer = board.GetWhoseTurn();
             char input;
             string coordinates = "";
@@ -28,6 +28,19 @@ namespace QuoridorCLI
                             validMove = true;
                             Console.Write("P1 -- Enter move coordinates:  ");
                             coordinates = Console.ReadLine();
+                            bool validCoordinates = false;
+                            while (validCoordinates == false)
+                            {
+                                if(((coordinates.Length == 2) && (coordinates[0] >= 'a' && coordinates[0] <= 'i') && (coordinates[1] >= '0' && coordinates[1] <= '9')) == true)
+                                {
+                                    validCoordinates = true;
+                                }
+                                else
+                                {
+                                    Console.Write("Invalid coordinates.  Try again:  ");
+                                    coordinates = Console.ReadLine();
+                                }
+                            }
                             if (board.MovePiece(GameBoard.PlayerEnum.ONE, new PlayerCoordinate(coordinates)) == true)
                             {
                                 board.PrintBoard();
@@ -47,6 +60,19 @@ namespace QuoridorCLI
                             validMove = true;
                             Console.Write("P2 -- Enter move coordinates:  ");
                             coordinates = Console.ReadLine();
+                            bool validCoordinates = false;
+                            while (validCoordinates == false)
+                            {
+                                if (((coordinates.Length == 2) && (coordinates[0] >= 'a' && coordinates[0] <= 'i') && (coordinates[1] >= '0' && coordinates[1] <= '9')) == true)
+                                {
+                                    validCoordinates = true;
+                                }
+                                else
+                                {
+                                    Console.Write("Invalid coordinates.  Try again:  ");
+                                    coordinates = Console.ReadLine();
+                                }
+                            }
                             if (board.MovePiece(GameBoard.PlayerEnum.TWO, new PlayerCoordinate(coordinates)) == true)
                             {
                                 board.PrintBoard();
@@ -69,6 +95,20 @@ namespace QuoridorCLI
                             validMove = true;
                             Console.Write("P1 -- Enter wall coordinates:  ");
                             coordinates = Console.ReadLine();
+                            bool validWallCoordinates = false;
+                            while(validWallCoordinates == false)
+                            {
+                                if(((coordinates.Length == 3) && (coordinates[0] >= 'a' && coordinates[0] <= 'i') && (coordinates[1] >= '0' && coordinates[1] <= '9')
+                                    && (coordinates[2] == 'h' || coordinates[2] == 'v')) == true)
+                                {
+                                    validWallCoordinates = true;
+                                }
+                                else
+                                {
+                                    Console.Write("Invalid wall coordinates.  Try again:  ");
+                                    coordinates = Console.ReadLine();
+                                }
+                            }
                             if (board.PlaceWall(GameBoard.PlayerEnum.ONE, new WallCoordinate(coordinates)) == true)
                             {
                                 board.PrintBoard();
@@ -90,6 +130,20 @@ namespace QuoridorCLI
                             validMove = true;
                             Console.Write("P2 -- Enter wall coordinates:  ");
                             coordinates = Console.ReadLine();
+                            bool validWallCoordinates = false;
+                            while (validWallCoordinates == false)
+                            {
+                                if (((coordinates.Length == 3) && (coordinates[0] >= 'a' && coordinates[0] <= 'i') && (coordinates[1] >= '0' && coordinates[1] <= '9')
+                                    && (coordinates[2] == 'h' || coordinates[2] == 'v')) == true)
+                                {
+                                    validWallCoordinates = true;
+                                }
+                                else
+                                {
+                                    Console.Write("Invalid wall coordinates.  Try again:  ");
+                                    coordinates = Console.ReadLine();
+                                }
+                            }
                             if (board.PlaceWall(GameBoard.PlayerEnum.TWO, new WallCoordinate(coordinates)) == true)
                             {
                                 board.PrintBoard();
@@ -104,7 +158,7 @@ namespace QuoridorCLI
                         } while (validMove == false);
                     }
                 }
-
+                
                 if (currentPlayer == 1)
                 {
                     if (player1walls > 0)
