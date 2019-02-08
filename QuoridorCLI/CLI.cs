@@ -31,7 +31,7 @@ namespace QuoridorCLI
                             bool validCoordinates = false;
                             while (validCoordinates == false)
                             {
-                                if(((coordinates.Length == 2) && (coordinates[0] >= 'a' && coordinates[0] <= 'i') && (coordinates[1] >= '0' && coordinates[1] <= '9')) == true)
+                                if (((coordinates.Length == 2) && (coordinates[0] >= 'a' && coordinates[0] <= 'i') && (coordinates[1] >= '0' && coordinates[1] <= '9')) == true)
                                 {
                                     validCoordinates = true;
                                 }
@@ -96,9 +96,9 @@ namespace QuoridorCLI
                             Console.Write("P1 -- Enter wall coordinates:  ");
                             coordinates = Console.ReadLine();
                             bool validWallCoordinates = false;
-                            while(validWallCoordinates == false)
+                            while (validWallCoordinates == false)
                             {
-                                if(((coordinates.Length == 3) && (coordinates[0] >= 'a' && coordinates[0] <= 'i') && (coordinates[1] >= '0' && coordinates[1] <= '9')
+                                if (((coordinates.Length == 3) && (coordinates[0] >= 'a' && coordinates[0] <= 'i') && (coordinates[1] >= '0' && coordinates[1] <= '9')
                                     && (coordinates[2] == 'h' || coordinates[2] == 'v')) == true)
                                 {
                                     validWallCoordinates = true;
@@ -158,10 +158,11 @@ namespace QuoridorCLI
                         } while (validMove == false);
                     }
                 }
-                
-                if(board.IsGameOver)
+
+                if (board.IsGameOver())
                 {
                     Console.Write("Game over!");
+                    input = 'q';
                 }
                 else if (currentPlayer == 1)
                 {
@@ -191,5 +192,6 @@ namespace QuoridorCLI
                 }
             }
         }
+
     }
 }
