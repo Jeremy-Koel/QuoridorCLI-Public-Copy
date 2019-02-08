@@ -158,8 +158,12 @@ namespace QuoridorCLI
                         } while (validMove == false);
                     }
                 }
-               
-                if (currentPlayer == 1)
+                
+                if(board.IsGameOver)
+                {
+                    Console.Write("Game over!");
+                }
+                else if (currentPlayer == 1)
                 {
                     if (player1walls > 0)
                     {
@@ -172,7 +176,7 @@ namespace QuoridorCLI
                         input = Console.ReadLine().ToCharArray()[0];
                     }
                 }
-                if (currentPlayer == 2)
+                else if (currentPlayer == 2)
                 {
                     if (player2walls > 0)
                     {
