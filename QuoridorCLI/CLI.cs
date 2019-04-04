@@ -9,6 +9,7 @@ namespace QuoridorCLI
         {
             int currentPlayer = 0, player1walls = 10, player2walls = 10;
             GameBoard board = new GameBoard("e1", "e9");
+
             MonteCarlo WeakAI = new MonteCarlo(board);
             Console.WriteLine(WeakAI.MonteCarloTreeSearch());
             currentPlayer = board.GetWhoseTurn();
