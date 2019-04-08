@@ -8,10 +8,72 @@ namespace QuoridorCLI
         static void Main(string[] args)
         {
             int currentPlayer = 0, player1walls = 10, player2walls = 10;
-            GameBoard board = new GameBoard("e1", "e9");
+            GameBoard board = new GameBoard(GameBoard.PlayerEnum.TWO, "e4","e7");
+
+            board.PlaceWall(GameBoard.PlayerEnum.TWO, new WallCoordinate("d4h"));
+            board.PlaceWall(GameBoard.PlayerEnum.ONE, new WallCoordinate("d3h"));
+            board.MovePiece(GameBoard.PlayerEnum.TWO, new PlayerCoordinate("e6"));
+            board.MovePiece(GameBoard.PlayerEnum.ONE, new PlayerCoordinate("d4"));
+            board.MovePiece(GameBoard.PlayerEnum.TWO, new PlayerCoordinate("e5"));
+            board.MovePiece(GameBoard.PlayerEnum.ONE, new PlayerCoordinate("c4"));
+            board.MovePiece(GameBoard.PlayerEnum.TWO, new PlayerCoordinate("f5"));
+            board.PlaceWall(GameBoard.PlayerEnum.ONE, new WallCoordinate("f3h"));
+            board.MovePiece(GameBoard.PlayerEnum.TWO, new PlayerCoordinate("f4"));
+            board.PlaceWall(GameBoard.PlayerEnum.ONE, new WallCoordinate("h3h"));
+            board.MovePiece(GameBoard.PlayerEnum.TWO, new PlayerCoordinate("e4"));
+            board.PlaceWall(GameBoard.PlayerEnum.ONE, new WallCoordinate("e5v"));
+            board.MovePiece(GameBoard.PlayerEnum.TWO, new PlayerCoordinate("d4"));
+            board.PlaceWall(GameBoard.PlayerEnum.ONE, new WallCoordinate("c4v"));
+            board.MovePiece(GameBoard.PlayerEnum.TWO, new PlayerCoordinate("e4"));
+            board.PlaceWall(GameBoard.PlayerEnum.ONE, new WallCoordinate("e6h"));
+            board.MovePiece(GameBoard.PlayerEnum.TWO, new PlayerCoordinate("f4"));
+            board.PlaceWall(GameBoard.PlayerEnum.ONE, new WallCoordinate("g6h"));
+            board.MovePiece(GameBoard.PlayerEnum.TWO, new PlayerCoordinate("f3"));
+            board.PlaceWall(GameBoard.PlayerEnum.ONE, new WallCoordinate("h7h"));
+            //board.PlaceWall(GameBoard.PlayerEnum.TWO, new WallCoordinate("c4h"));
+            //board.PlaceWall(GameBoard.PlayerEnum.ONE, new WallCoordinate("d3v"));
+            //board.PlaceWall(GameBoard.PlayerEnum.TWO, new WallCoordinate("g2h"));
+            ////board.PlaceWall(GameBoard.PlayerEnum.ONE, new WallCoordinate("b8h"));
+            ////board.PlaceWall(GameBoard.PlayerEnum.TWO, new WallCoordinate("b4v"));
+            ////board.PlaceWall(GameBoard.PlayerEnum.ONE, new WallCoordinate("c2h"));
+            ////board.PlaceWall(GameBoard.PlayerEnum.TWO, new WallCoordinate("c5h"));
+            ////board.PlaceWall(GameBoard.PlayerEnum.ONE, new WallCoordinate("d4h"));
+            ////board.PlaceWall(GameBoard.PlayerEnum.TWO, new WallCoordinate("d7h"));
+            ////board.PlaceWall(GameBoard.PlayerEnum.ONE, new WallCoordinate("e5h"));
+            ////board.PlaceWall(GameBoard.PlayerEnum.TWO, new WallCoordinate("e8h"));
+            ////board.PlaceWall(GameBoard.PlayerEnum.ONE, new WallCoordinate("e2v"));
+            ////board.PlaceWall(GameBoard.PlayerEnum.TWO, new WallCoordinate("e4v"));
+
+            //board.MovePiece(GameBoard.PlayerEnum.ONE, new PlayerCoordinate("b4"));
+            //board.MovePiece(GameBoard.PlayerEnum.TWO, new PlayerCoordinate("i2"));
+
+            //board.PlaceWall(GameBoard.PlayerEnum.TWO, new WallCoordinate("f2h"));
+
+            //board.MovePiece(GameBoard.PlayerEnum.ONE, new PlayerCoordinate("d8"));
+
+            //board.PlaceWall(GameBoard.PlayerEnum.TWO, new WallCoordinate("f3h"));
+
+            //board.MovePiece(GameBoard.PlayerEnum.ONE, new PlayerCoordinate("c8"));
+
+            //board.PlaceWall(GameBoard.PlayerEnum.TWO, new WallCoordinate("h2h"));
+
+            //board.MovePiece(GameBoard.PlayerEnum.ONE, new PlayerCoordinate("d8"));
+
+            //board.MovePiece(GameBoard.PlayerEnum.TWO, new PlayerCoordinate("a4"));
+
+            //board.MovePiece(GameBoard.PlayerEnum.ONE, new PlayerCoordinate("c8"));
+
+            //board.MovePiece(GameBoard.PlayerEnum.TWO, new PlayerCoordinate("a3"));
+
+            //board.MovePiece(GameBoard.PlayerEnum.ONE, new PlayerCoordinate("d8"));
+
+            MonteCarlo WeakAI = new MonteCarlo(board);
+
+            Console.WriteLine(WeakAI.MonteCarloTreeSearch());
+
             currentPlayer = board.GetWhoseTurn();
             char input;
-            string coordinates = "";
+            string coordinates = "";  
             Console.WriteLine("Player " + currentPlayer + " goes first!");
             board.PrintBoard();
             Console.Write("1 for move;  2 for wall;  q for quit:  ");
