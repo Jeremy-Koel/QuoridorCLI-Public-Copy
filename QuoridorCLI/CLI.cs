@@ -8,16 +8,47 @@ namespace QuoridorCLI
         static void Main(string[] args)
         {
             int currentPlayer = 0, player1walls = 10, player2walls = 10;
-            GameBoard board = new GameBoard(GameBoard.PlayerEnum.ONE, "e1","e9");
+            GameBoard board = new GameBoard(GameBoard.PlayerEnum.ONE, "h8","e5");
 
 
-            board.PlaceWall(GameBoard.PlayerEnum.ONE, new WallCoordinate("d8h"));
-            board.MovePiece(GameBoard.PlayerEnum.TWO, new PlayerCoordinate("f9"));
-            board.PlaceWall(GameBoard.PlayerEnum.ONE, new WallCoordinate("f8h"));
-            board.MovePiece(GameBoard.PlayerEnum.TWO, new PlayerCoordinate("g9"));
-            board.PlaceWall(GameBoard.PlayerEnum.ONE, new WallCoordinate("g8v"));
-            board.MovePiece(GameBoard.PlayerEnum.TWO, new PlayerCoordinate("f9"));
-            board.MovePiece(GameBoard.PlayerEnum.ONE, new PlayerCoordinate("e2"));
+            board.PlaceWall(GameBoard.PlayerEnum.ONE, new WallCoordinate("h1v"));
+            board.PlaceWall(GameBoard.PlayerEnum.TWO, new WallCoordinate("h3h"));
+
+            board.PlaceWall(GameBoard.PlayerEnum.ONE, new WallCoordinate("d1h"));
+            board.PlaceWall(GameBoard.PlayerEnum.TWO, new WallCoordinate("d5h"));
+
+            board.PlaceWall(GameBoard.PlayerEnum.ONE, new WallCoordinate("e2v"));
+            board.PlaceWall(GameBoard.PlayerEnum.TWO, new WallCoordinate("f5h"));
+
+            board.PlaceWall(GameBoard.PlayerEnum.ONE, new WallCoordinate("c2v"));
+            board.PlaceWall(GameBoard.PlayerEnum.TWO, new WallCoordinate("f6h"));
+
+            board.PlaceWall(GameBoard.PlayerEnum.ONE, new WallCoordinate("b1h"));
+            board.PlaceWall(GameBoard.PlayerEnum.TWO, new WallCoordinate("e7h"));
+
+            board.PlaceWall(GameBoard.PlayerEnum.ONE, new WallCoordinate("a2v"));
+            board.PlaceWall(GameBoard.PlayerEnum.TWO, new WallCoordinate("f8h"));
+
+            board.PlaceWall(GameBoard.PlayerEnum.ONE, new WallCoordinate("a3h"));
+            board.PlaceWall(GameBoard.PlayerEnum.TWO, new WallCoordinate("h8h"));
+
+            board.PlaceWall(GameBoard.PlayerEnum.ONE, new WallCoordinate("c3h"));
+            board.PlaceWall(GameBoard.PlayerEnum.TWO, new WallCoordinate("h7h"));
+
+            board.PlaceWall(GameBoard.PlayerEnum.ONE, new WallCoordinate("d3v"));
+            board.MovePiece(GameBoard.PlayerEnum.TWO, new PlayerCoordinate("e4"));
+
+            board.PlaceWall(GameBoard.PlayerEnum.ONE, new WallCoordinate("f2h"));
+            board.MovePiece(GameBoard.PlayerEnum.TWO, new PlayerCoordinate("f4"));
+            
+            board.MovePiece(GameBoard.PlayerEnum.ONE, new PlayerCoordinate("g8"));
+            //board.MovePiece(GameBoard.PlayerEnum.TWO, new PlayerCoordinate("f3"));
+
+            //board.PlaceWall(GameBoard.PlayerEnum.ONE, new WallCoordinate("f8h"));
+            //board.MovePiece(GameBoard.PlayerEnum.TWO, new PlayerCoordinate("g9"));
+            //board.PlaceWall(GameBoard.PlayerEnum.ONE, new WallCoordinate("g8v"));
+            //board.MovePiece(GameBoard.PlayerEnum.TWO, new PlayerCoordinate("f9"));
+            //board.MovePiece(GameBoard.PlayerEnum.ONE, new PlayerCoordinate("e2"));
 
             //AI Error 1
             //GameBoard board = new GameBoard(GameBoard.PlayerEnum.TWO, "h3","h2");
@@ -30,7 +61,7 @@ namespace QuoridorCLI
             //board.PlaceWall(GameBoard.PlayerEnum.ONE, new WallCoordinate("c6v"));
 
 
-            MonteCarlo WeakAI = new MonteCarlo(board);
+            MonteCarlo WeakAI = new MonteCarlo(board, true);
 
             Console.WriteLine(WeakAI.MonteCarloTreeSearch());
 
