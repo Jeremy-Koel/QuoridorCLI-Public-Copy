@@ -8,40 +8,42 @@ namespace QuoridorCLI
         static void Main(string[] args)
         {
             int currentPlayer = 0, player1walls = 10, player2walls = 10;
-            GameBoard board = new GameBoard(GameBoard.PlayerEnum.ONE, "h8","e5");
+            GameBoard board = new GameBoard(GameBoard.PlayerEnum.TWO, "e3","e7");
 
 
-            board.PlaceWall(GameBoard.PlayerEnum.ONE, new WallCoordinate("h1v"));
-            board.PlaceWall(GameBoard.PlayerEnum.TWO, new WallCoordinate("h3h"));
 
-            board.PlaceWall(GameBoard.PlayerEnum.ONE, new WallCoordinate("d1h"));
-            board.PlaceWall(GameBoard.PlayerEnum.TWO, new WallCoordinate("d5h"));
+            board.MovePiece(GameBoard.PlayerEnum.TWO, new PlayerCoordinate("e6"));
+            board.PlaceWall(GameBoard.PlayerEnum.ONE, new WallCoordinate("e5h"));
 
-            board.PlaceWall(GameBoard.PlayerEnum.ONE, new WallCoordinate("e2v"));
-            board.PlaceWall(GameBoard.PlayerEnum.TWO, new WallCoordinate("f5h"));
+            //board.PlaceWall(GameBoard.PlayerEnum.ONE, new WallCoordinate("c2v"));
+            //board.PlaceWall(GameBoard.PlayerEnum.TWO, new WallCoordinate("d2h"));
 
-            board.PlaceWall(GameBoard.PlayerEnum.ONE, new WallCoordinate("c2v"));
-            board.PlaceWall(GameBoard.PlayerEnum.TWO, new WallCoordinate("f6h"));
+            //board.PlaceWall(GameBoard.PlayerEnum.ONE, new WallCoordinate("b2h"));
+            //board.PlaceWall(GameBoard.PlayerEnum.TWO, new WallCoordinate("a3v"));
 
-            board.PlaceWall(GameBoard.PlayerEnum.ONE, new WallCoordinate("b1h"));
-            board.PlaceWall(GameBoard.PlayerEnum.TWO, new WallCoordinate("e7h"));
+            //board.PlaceWall(GameBoard.PlayerEnum.ONE, new WallCoordinate("c4v"));
+            //board.PlaceWall(GameBoard.PlayerEnum.TWO, new WallCoordinate("d4v"));
 
-            board.PlaceWall(GameBoard.PlayerEnum.ONE, new WallCoordinate("a2v"));
-            board.PlaceWall(GameBoard.PlayerEnum.TWO, new WallCoordinate("f8h"));
+            //board.PlaceWall(GameBoard.PlayerEnum.ONE, new WallCoordinate("a5h"));
+            //board.PlaceWall(GameBoard.PlayerEnum.TWO, new WallCoordinate("e5h"));
 
-            board.PlaceWall(GameBoard.PlayerEnum.ONE, new WallCoordinate("a3h"));
-            board.PlaceWall(GameBoard.PlayerEnum.TWO, new WallCoordinate("h8h"));
+            //board.PlaceWall(GameBoard.PlayerEnum.ONE, new WallCoordinate("f2v"));
+            //board.PlaceWall(GameBoard.PlayerEnum.TWO, new WallCoordinate("f5v"));
 
-            board.PlaceWall(GameBoard.PlayerEnum.ONE, new WallCoordinate("c3h"));
-            board.PlaceWall(GameBoard.PlayerEnum.TWO, new WallCoordinate("h7h"));
+            //board.PlaceWall(GameBoard.PlayerEnum.ONE, new WallCoordinate("f6h"));
+            //board.PlaceWall(GameBoard.PlayerEnum.TWO, new WallCoordinate("f7v"));
 
-            board.PlaceWall(GameBoard.PlayerEnum.ONE, new WallCoordinate("d3v"));
-            board.MovePiece(GameBoard.PlayerEnum.TWO, new PlayerCoordinate("e4"));
+            //board.PlaceWall(GameBoard.PlayerEnum.ONE, new WallCoordinate("g7h"));
+            //board.PlaceWall(GameBoard.PlayerEnum.TWO, new WallCoordinate("h5h"));
 
-            board.PlaceWall(GameBoard.PlayerEnum.ONE, new WallCoordinate("f2h"));
-            board.MovePiece(GameBoard.PlayerEnum.TWO, new PlayerCoordinate("f4"));
-            
-            board.MovePiece(GameBoard.PlayerEnum.ONE, new PlayerCoordinate("g8"));
+            //board.PlaceWall(GameBoard.PlayerEnum.ONE, new WallCoordinate("h6v"));
+            //board.MovePiece(GameBoard.PlayerEnum.TWO, new PlayerCoordinate("b5"));
+
+            //board.MovePiece(GameBoard.PlayerEnum.ONE, new PlayerCoordinate("a4"));
+            //board.MovePiece(GameBoard.PlayerEnum.TWO, new PlayerCoordinate("a5"));
+            //board.MovePiece(GameBoard.PlayerEnum.ONE, new PlayerCoordinate("b5"));
+
+
             //board.MovePiece(GameBoard.PlayerEnum.TWO, new PlayerCoordinate("f3"));
 
             //board.PlaceWall(GameBoard.PlayerEnum.ONE, new WallCoordinate("f8h"));
